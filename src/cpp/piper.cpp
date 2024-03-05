@@ -333,6 +333,15 @@ void loadVoice(PiperConfig &config, std::string modelPath,
 
 } /* loadVoice */
 
+/* This version of the header will provide for an output parameter for the phoneme lengths array. The numbers won't be known until synthesize runs however.
+void synthesize(std::vector<PhonemeId> &phonemeIds,
+                SynthesisConfig &synthesisConfig, ModelSession &session,
+                std::vector<int16_t> &audioBuffer, SynthesisResult &result,
+                std::vector<float> &phonemeLengths) {
+  // Function implementation...
+}
+*/
+
 // Phoneme ids to WAV audio
 void synthesize(std::vector<PhonemeId> &phonemeIds,
                 SynthesisConfig &synthesisConfig, ModelSession &session,
@@ -441,7 +450,14 @@ void synthesize(std::vector<PhonemeId> &phonemeIds,
 }
 
 // ----------------------------------------------------------------------------
-
+/* This header would add the phoneme lengths array as an output parameter. The numbers won't be known until synthesize runs however.
+void textToAudio(PiperConfig &config, Voice &voice, std::string text,
+                 std::vector<int16_t> &audioBuffer, SynthesisResult &result,
+                 std::vector<float> &phonemeLengths,
+                 const std::function<void()> &audioCallback) {
+  // Function implementation...
+}
+*/
 // Phonemize text and synthesize audio
 void textToAudio(PiperConfig &config, Voice &voice, std::string text,
                  std::vector<int16_t> &audioBuffer, SynthesisResult &result,
